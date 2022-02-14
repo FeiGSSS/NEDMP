@@ -1,0 +1,2 @@
+python train.py --data_path data/origin/ER/mu05/train_data/SIR_300.pkl --model nedmp --train_ratio 0.7 --val_ratio 0.1 --cuda_id 1 >./logs/trian_origin_er_mu05_nedmp.txt 2>&1 &
+python train.py --data_path data/origin/ER/mu10/train_data/SIR_300.pkl --model nedmp --train_ratio 0.7 --val_ratio 0.1 --cuda_id 2 >./logs/trian_origin_er_mu10_nedmp.txt 2>&1
