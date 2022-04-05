@@ -18,3 +18,14 @@ We provide bash scripts (at `./bashs`) for generating all datasets used in our p
 
 We implementate DMP using PyTorch at `./src/DMP/SIR.py`, and the code for NEDMP and baseline GNN at `src/model`.
 
+## Citation
+
+```
+@inproceedings{Gao2022NEDMPNE,
+  title={Neural Enhanced Dynamic Message Passing},
+  author={Fei Gao and Yan Zhang and Jiang Zhang},
+  booktitle={AISTATS},
+  year={2022}
+}
+```
+
