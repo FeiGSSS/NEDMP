@@ -11,6 +11,7 @@ Predicting stochastic spreading processes on complex networks is critical in epi
 ## Requirements
 OS:
 - Ubuntu
+
 Python packages:
 - troch==1.9.1
 - torch-geometric>=2.0
