@@ -1,4 +1,4 @@
-# NEDMP: Neural Enhanced Dynamic Message Passing
+# Neural Enhanced Dynamic Message Passing (NEDMP)
 
 This is a PyTorch implementation of paper ***[Neural Enhanced Dynamic Message Passing](https://arxiv.org/abs/2202.06496)*** in AISTATS 2022.
 
@@ -22,13 +22,22 @@ We provide bash scripts (at `./bashs`) for generating all datasets used in our p
 We implementate DMP using PyTorch at `./src/DMP/SIR.py`, and the code for NEDMP and baseline GNN at `src/model`.
 
 ## Citation
-
 ```
-@inproceedings{Gao2022NEDMPNE,
-  title={Neural Enhanced Dynamic Message Passing},
-  author={Fei Gao and Yan Zhang and Jiang Zhang},
-  booktitle={AISTATS},
-  year={2022}
+
+@InProceedings{pmlr-v151-gao22b,
+  title = 	 { Neural Enhanced Dynamic Message Passing },
+  author =       {Gao, Fei and Zhang, Jiang and Zhang, Yan},
+  booktitle = 	 {Proceedings of The 25th International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {10471--10482},
+  year = 	 {2022},
+  editor = 	 {Camps-Valls, Gustau and Ruiz, Francisco J. R. and Valera, Isabel},
+  volume = 	 {151},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {28--30 Mar},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v151/gao22b/gao22b.pdf},
+  url = 	 {https://proceedings.mlr.press/v151/gao22b.html},
 }
+
 ```
 
