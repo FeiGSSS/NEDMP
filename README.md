@@ -1,4 +1,5 @@
 # Neural Enhanced Dynamic Message Passing (NEDMP)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/a-norcliffe/sonode/blob/master/LICENSE) [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/release/python-370/)
 
 This is a PyTorch implementation of paper ***[Neural Enhanced Dynamic Message Passing](https://proceedings.mlr.press/v151/gao22b.html)*** in AISTATS 2022.
 
