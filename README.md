@@ -68,7 +68,7 @@ you can change the args `-data` to generate simulations on different graph struc
 Or you can simply run bash script `./bashs/generate_realnets_data.sh` and `./bashs/generate_syn_data.sh` to generate all datasets used for the fitting experiments.
 
 ### 2.2 Traing the model
-You can train our model as well as the baseline model GNN for dataset, such as the graph `dolphins`:
+Cause the space limitation, we only uploaded two simulation results: synthetic tree graph and real-world dolphins graph. You can train our model as well as the baseline model GNN on those toy data:
 ```
 python train.py --model gnn --cuda_id 1 --diff SIR --data_path data/realnets/dolphins/train_data/SIR_150.pkl
 python train.py --model nedmp --cuda_id 1 --diff SIR --data_path data/realnets/dolphins/train_data/SIR_150.pkl
