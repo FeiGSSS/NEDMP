@@ -3,7 +3,9 @@ import os
 import sys
 
 from networkx.algorithms.shortest_paths import dense
-sys.path.append("..")
+from pathlib import Path
+import sys
+sys.path.append(str(Path("..").parent.absolute()))
 import argparse
 import time
 import subprocess
@@ -149,14 +151,3 @@ if __name__ == "__main__":
             with open(sp, "wb") as f:
                 pkl.dump(dataset, f)
             print(sp, " DONE")
-
-
-
-
-
-
-
-
-
-        
-        

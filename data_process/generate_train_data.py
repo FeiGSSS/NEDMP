@@ -1,5 +1,6 @@
+from pathlib import Path
 import sys
-sys.path.append("/data/gaofei/research/mplgnn")
+sys.path.append(str(Path("..").parent.absolute()))
 
 import os
 import argparse

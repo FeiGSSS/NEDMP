@@ -1,6 +1,7 @@
 import os
+from pathlib import Path
 import sys
-sys.path.append("..")
+sys.path.append(str(Path("..").parent.absolute()))
 import argparse
 import time
 from tqdm import tqdm

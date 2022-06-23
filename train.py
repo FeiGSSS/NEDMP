@@ -108,7 +108,7 @@ if __name__ == "__main__":
     parser.add_argument("--data_path", type=str, default=None)
     parser.add_argument("--train_ratio", type=float, default=0.6)
     parser.add_argument("--val_ratio", type=float, default=0.2)
-    parser.add_argument("--model", type=str, default="lgnn")
+    parser.add_argument("--model", type=str, default="gnn")
     parser.add_argument("--num_status", type=int, default=3)
     parser.add_argument("--early_stop", type=int, default=10)
     parser.add_argument("--testing", action="store_true")

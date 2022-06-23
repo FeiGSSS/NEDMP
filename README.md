@@ -9,7 +9,7 @@ Predicting stochastic spreading processes on complex networks is critical in epi
   <img src="./NEDMP_vis.png" width="450" title="hover text">
 </p>
 
-## Requirements
+## 1. Requirements
 OS:
 - Ubuntu
 
@@ -28,12 +28,12 @@ pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-${TORCH}+${C
 pip install torch-geometric
 ```
 
-## Code
+## 2. Run the Codes
 We provide bash scripts (at `./bashs`) for generating all datasets used in our paper and running all experiments (as well as hyper parameters) conducted in our paper.
 
 We implementate DMP using PyTorch at `./src/DMP/SIR.py`, and the code for NEDMP and baseline GNN at `src/model`.
 
-### Generate Simulation Data
+### 2.1 Generate Simulation Data
 ***Notices:*** we use a binary file `./src/utils/simulation` which is wrote in C and complied on Ubuntu to performe the simulations. Therefore, it may raise Error when you run ours codes on other operation systems.
 
 The main script to generate simulation data is `data_process/generate_train_data.py`:
@@ -67,6 +67,13 @@ you can change the args `-data` to generate simulations on different graph struc
 
 Or you can simply run bash script `./bashs/generate_realnets_data.sh` and `./bashs/generate_syn_data.sh` to generate all datasets used for the fitting experiments.
 
+### 2.2 Traing the model
+You can train our model as well as the baseline model GNN for dataset, such as the graph `dolphins`:
+```
+python train.py --model gnn --cuda_id 1 --diff SIR --data_path data/realnets/dolphins/train_data/SIR_150.pkl
+python train.py --model nedmp --cuda_id 1 --diff SIR --data_path data/realnets/dolphins/train_data/SIR_150.pkl
+```
+And by running `./bashs/train_syn_nedmp.sh`, `./bashs/train_real_nedmp.sh`,`./bashs/train_syn_gnn.sh` and `./bashs/train_real_gnn.sh`, you can get all the results in the fitting experiments.
 ## Citation
 ```
 
