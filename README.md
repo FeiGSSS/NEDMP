@@ -1,6 +1,7 @@
-# NEDMP: Neural Enhanced Dynamic Message Passing
+# Neural Enhanced Dynamic Message Passing (NEDMP)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/a-norcliffe/sonode/blob/master/LICENSE) [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/release/python-370/)
 
-This is a PyTorch implementation of paper ***[Neural Enhanced Dynamic Message Passing](https://arxiv.org/abs/2202.06496)*** in AISTATS 2022.
+This is a PyTorch implementation of paper ***[Neural Enhanced Dynamic Message Passing](https://proceedings.mlr.press/v151/gao22b.html)*** in AISTATS 2022.
 
 ## Abstract
 Predicting stochastic spreading processes on complex networks is critical in epidemic control, opinion propagation, and viral marketing. We focus on the problem of inferring the time-dependent marginal probabilities of states for each node which collectively quantifies the spreading results. Dynamic Message Passing (DMP) has been developed as an efficient inference algorithm for several spreading models, and it is asymptotically exact on locally tree-like networks. However, DMP can struggle in diffusion networks with lots of local loops. We address this limitation by using Graph Neural Networks (GNN) to learn the dependency amongst messages implicitly. Specifically, we propose a hybrid model in which the GNN module runs jointly with DMP equations. The GNN module refines the aggregated messages in DMP iterations by learning from simulation data. We demonstrate numerically that after training, our model's inference accuracy substantially outperforms DMP in conditions of various network structure and dynamics parameters. Moreover, compared to pure data-driven models, the proposed hybrid model has a better generalization ability for out-of-training cases, profiting from the explicitly utilized dynamics priors in the hybrid model.
@@ -67,13 +68,22 @@ you can change the args `-data` to generate simulations on different graph struc
 Or you can simply run bash script `./bashs/generate_realnets_data.sh` and `./bashs/generate_syn_data.sh` to generate all datasets used for the fitting experiments.
 
 ## Citation
-
 ```
-@inproceedings{Gao2022NEDMPNE,
-  title={Neural Enhanced Dynamic Message Passing},
-  author={Fei Gao and Yan Zhang and Jiang Zhang},
-  booktitle={AISTATS},
-  year={2022}
+
+@InProceedings{pmlr-v151-gao22b,
+  title = 	 { Neural Enhanced Dynamic Message Passing },
+  author =       {Gao, Fei and Zhang, Jiang and Zhang, Yan},
+  booktitle = 	 {Proceedings of The 25th International Conference on Artificial Intelligence and Statistics},
+  pages = 	 {10471--10482},
+  year = 	 {2022},
+  editor = 	 {Camps-Valls, Gustau and Ruiz, Francisco J. R. and Valera, Isabel},
+  volume = 	 {151},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {28--30 Mar},
+  publisher =    {PMLR},
+  pdf = 	 {https://proceedings.mlr.press/v151/gao22b/gao22b.pdf},
+  url = 	 {https://proceedings.mlr.press/v151/gao22b.html},
 }
+
 ```
 
