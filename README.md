@@ -12,14 +12,59 @@ Predicting stochastic spreading processes on complex networks is critical in epi
 OS:
 - Ubuntu
 
-Python packages:
-- troch==1.9.1
-- torch-geometric>=2.0
+Install dependencies following:
+
+```
+conda install numpy -y
+conda install networkx -y
+pip install scipy==1.8.0
+conda install pytorch==1.10.1 cudatoolkit=11.3 -c pytorch -c conda-forge
+
+TORCH=1.10.1
+CUDA=cu113
+pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-${TORCH}+${CUDA}.html
+pip install torch-geometric
+```
 
 ## Code
 We provide bash scripts (at `./bashs`) for generating all datasets used in our paper and running all experiments (as well as hyper parameters) conducted in our paper.
 
 We implementate DMP using PyTorch at `./src/DMP/SIR.py`, and the code for NEDMP and baseline GNN at `src/model`.
+
+### Generate Simulation Data
+***Notices:*** we use a binary file `./src/utils/simulation` which is wrote in C and complied on Ubuntu to performe the simulations. Therefore, it may raise Error when you run ours codes on other operation systems.
+
+The main script to generate simulation data is `data_process/generate_train_data.py`:
+```
+usage: generate_train_data.py [-h] [-data DATA_PATH] [-df DIFFUSION] [-ns NUM_SAMPLES] [-np NODE_PROB [NODE_PROB ...]] [-ep EDGE_PROB [EDGE_PROB ...]] [-ss SEED_SIZE]
+                              [-cc CPU_CORE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -data DATA_PATH, --data_path DATA_PATH
+                        path to graphs
+  -df DIFFUSION, --diffusion DIFFUSION
+                        The diffusion model
+  -ns NUM_SAMPLES, --num_samples NUM_SAMPLES
+                        number of samples to be generated
+  -np NODE_PROB [NODE_PROB ...], --node_prob NODE_PROB [NODE_PROB ...]
+                        the parameters range for node in diffusion model
+  -ep EDGE_PROB [EDGE_PROB ...], --edge_prob EDGE_PROB [EDGE_PROB ...]
+                        the parameters range for edges in diffusion model
+  -ss SEED_SIZE, --seed_size SEED_SIZE
+                        The maximum percent of nodes been set as nodes
+  -cc CPU_CORE, --cpu_core CPU_CORE
+```
+For example, by running:
+```
+python data_process/generate_train_data.py  -df SIR -ns 200 -np 0.4 0.6 -ep 0.2 0.5 -ss 1 -data ./data/synthetic/tree
+```
+you can generate ns=200 independent SIR simulations in a `date=tree` graph each with ss=1 randomly selected seed node,  and the propagation probibilities for each edge is randomly sampled from [0.2, 0.5], and the recover rate for each node is sample from [0.4, 0.6]. The resulting data will be saved to `./data/synthetic/tree/train_data/SIR_200.pkl`
+
+you can change the args `-data` to generate simulations on different graph strucutre.
+
+Or you can simply run bash script `./bashs/generate_realnets_data.sh` and `./bashs/generate_syn_data.sh` to generate all datasets used for the fitting experiments.
 
 ## Citation
 
